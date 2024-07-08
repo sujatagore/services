@@ -1,0 +1,37 @@
+
+<table class="table table-bordered table-striped table-hover table-responsive" *ngIf="StdArr.length > 0; else noStdInfo">
+    <thead class="thead-dark">
+        <tr>
+            <th>Sr.No</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email Id</th>
+            <th>Contact</th>
+            <th>Gender</th>
+            <th>Edit</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of StdArr;let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{data.fname}}</td>
+            <td>{{data.lname}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.contact}}</td>
+            <td>{{data.gender}}</td>
+            <td>
+                <button mat-stroked-button color="accent"><mat-icon>edit</mat-icon></button>
+            </td>
+            <td>
+                <button mat-stroked-button color="warn" (click)="onRemove(data.id)"><mat-icon>delete</mat-icon></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noStdInfo>
+    <p class="alert alert-warning">
+        No Student Information added yet!!!
+    </p>
+</ng-template>

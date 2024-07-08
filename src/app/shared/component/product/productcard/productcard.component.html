@@ -1,0 +1,35 @@
+
+<ng-container *ngIf="productObj">
+    <mat-card class="mb-5">
+        <mat-card-header>
+            <mat-card-title>
+                {{productObj.productname}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="imgcon">
+                        <img mat-card-xl-image [src]='productObj.image' [alt]="productObj.productname" [title]="productObj.productname" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-md-8 mt-2">
+                    <ol>
+                        <li *ngFor="let s of productObj.productdetail">
+                            {{s}}
+                        </li>
+                    </ol>
+                    <p class="mb-0">
+                        Product Status is <strong>{{productObj.productstatus}}</strong>
+                    </p>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions class="d-flex justify-content-between">
+            <button mat-raised-button color="accent">In Progress</button>
+            <button mat-raised-button color="accent">Delivered</button>
+            <button mat-raised-button color="accent">Dispatched</button>
+        </mat-card-actions>
+    </mat-card>
+</ng-container>

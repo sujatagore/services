@@ -1,0 +1,19 @@
+
+<div>
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <app-productform></app-productform>
+        </div>
+        <div class="col-md-8 offset-md-2">
+            <ng-container *ngIf="ProductArr.length;else noProduct">
+                <app-productcard [productObj]="pro" *ngFor="let pro of ProductArr"></app-productcard>
+            </ng-container>
+        </div> 
+    </div>
+</div>
+
+<ng-template #noProduct>
+    <p class="alert alert-warning">
+        No Product Added Yet!!!!
+    </p>
+</ng-template>

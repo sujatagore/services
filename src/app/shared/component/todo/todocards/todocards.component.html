@@ -1,0 +1,20 @@
+
+<ng-container *ngIf="todoArray.length > 0 ; else noTodoItem">
+    <mat-card *ngFor="let t of todoArray" class="mb-4">
+        <mat-card-content class="d-flex justify-content-between">
+            <span class=" text-center">
+                {{t.todo}}
+            </span>
+            <span>
+                <button mat-stroked-button color="accent"class="mr-2">Edit</button>
+                <button mat-stroked-button color="warn" (click)="onRemove(t.id)">Remove</button>
+            </span>
+        </mat-card-content>
+    </mat-card>
+</ng-container>
+
+<ng-template #noTodoItem>
+    <p class="alert alert-warning">
+        No Todo Item added yet!!!
+    </p>
+</ng-template> 
