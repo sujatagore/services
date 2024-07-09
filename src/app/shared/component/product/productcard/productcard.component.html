@@ -14,11 +14,14 @@
                     </div>
                 </div>
                 <div class="col-md-8 mt-2">
-                    <ol>
+                    <!-- <ol>
                         <li *ngFor="let s of productObj.productdetail">
                             {{s}}
                         </li>
-                    </ol>
+                    </ol> -->
+                    <p>
+                        {{productObj.productdetail}}
+                    </p>
                     <p class="mb-0">
                         Product Status is <strong>{{productObj.productstatus}}</strong>
                     </p>
@@ -27,9 +30,9 @@
         </mat-card-content>
         <mat-divider></mat-divider>
         <mat-card-actions class="d-flex justify-content-between">
-            <button mat-raised-button color="accent">In Progress</button>
-            <button mat-raised-button color="accent">Delivered</button>
-            <button mat-raised-button color="accent">Dispatched</button>
+            <button mat-raised-button color="accent" (click)="onStatusUpdate(productStatusEnum.InProgress)">In Progress</button>
+            <button mat-raised-button color="accent" (click)="onStatusUpdate(productStatusEnum.Delivered)">Delivered</button>
+            <button mat-raised-button color="accent" (click)="onStatusUpdate(productStatusEnum.Dispatched)">Dispatched</button>
         </mat-card-actions>
     </mat-card>
 </ng-container>

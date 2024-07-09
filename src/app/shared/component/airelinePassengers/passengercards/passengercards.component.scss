@@ -1,0 +1,14 @@
+.form-control:disabled{
+    background-color: transparent;
+    opacity: 1;
+    border: 0px;
+}
+
+.circle{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: orange;
+    display: inline-block;
+    align-self: center;
+}

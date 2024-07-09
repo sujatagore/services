@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Iproduct, productstatus } from 'src/app/shared/module/data.interface';
+import { ProductService } from 'src/app/shared/service/product.service';
+import { UuidserviceService } from 'src/app/shared/service/uuidservice.service';
 
 @Component({
   selector: 'app-productform',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductformComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('productForm') productFormRef !: NgForm
+
+  constructor(
+    private _UuidserviceService : UuidserviceService,
+    private _productService : ProductService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onProductAdd(){
+      if (this.productFormRef.valid) {
+        // console.log(this.productFormRef.value);
+
+        let NewProduct : Iproduct = {
+          ...this.productFormRef.value,
+          id: this._UuidserviceService.uuid(),
+          productstatus: productstatus.InProgress
+        }
+
+        console.log(NewProduct);
+
+        this.productFormRef.reset();
+        this._productService.addNewProduct(NewProduct)
+      }
   }
 
 }

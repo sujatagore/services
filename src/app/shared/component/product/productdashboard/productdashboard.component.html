@@ -5,9 +5,10 @@
             <app-productform></app-productform>
         </div>
         <div class="col-md-8 offset-md-2">
-            <ng-container *ngIf="ProductArr.length;else noProduct">
+            <div class="d-flex flex-column-reverse" 
+                *ngIf="ProductArr.length;else noProduct">
                 <app-productcard [productObj]="pro" *ngFor="let pro of ProductArr"></app-productcard>
-            </ng-container>
+            </div>
         </div> 
     </div>
 </div>

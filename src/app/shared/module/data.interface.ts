@@ -39,3 +39,16 @@ export enum productstatus{
     Delivered = 'Delivered',
     Dispatched = 'Dispatched'
 }
+
+export interface IPassenger {
+    id: number;
+    fullname: string;
+    checkedIn: boolean;
+    checkInDate?: any | number;
+    children: IChild[] | null;
+}
+
+export interface IChild {
+    name: string;
+    age: number;
+  }

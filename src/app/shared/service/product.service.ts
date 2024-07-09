@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Iproduct, productstatus } from '../module/data.interface';
+import { SnackBarMsgService } from './snack-bar-msg.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,25 @@ export class ProductService {
     }
   ]
 
-  constructor() { }
+  constructor(
+    private _snackBarservices : SnackBarMsgService
+  ) { }
 
   fetchAllProduct():  Array<Iproduct> {
     return this.productArr
   }
+
+  addNewProduct(newProduct : Iproduct){
+    this.productArr.push(newProduct);
+    this._snackBarservices.openSnackBar(`The new ${newProduct.productname} Product is added Successfully!!!!!`)
+  }
+
+  updateStatus(productObj : Iproduct){
+    let getIndex = this.productArr.findIndex(p => p.id === productObj.id);
+
+    this.productArr[getIndex] = productObj;
+    this._snackBarservices.openSnackBar(`The ${productObj.productname} status is updated to ${productObj.productstatus}`)
+  }
+
+  
 }

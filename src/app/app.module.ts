@@ -13,6 +13,11 @@ import { ProductcardComponent } from './shared/component/product/productcard/pro
 import { ProductformComponent } from './shared/component/product/productform/productform.component';
 import { StdFormComponent } from './shared/component/StdForm/std-form/std-form.component';
 import { StdTableComponent } from './shared/component/StdForm/std-table/std-table.component';
+import { PassengerdashboardComponent } from './shared/component/airelinePassengers/passengerdashboard/passengerdashboard.component';
+import { PassengercardsComponent } from './shared/component/airelinePassengers/passengercards/passengercards.component';
+import { PassengercountComponent } from './shared/component/airelinePassengers/passengercount/passengercount.component';
+
+
 
 @NgModule({
   declarations: [
@@ -24,13 +29,16 @@ import { StdTableComponent } from './shared/component/StdForm/std-table/std-tabl
     ProductcardComponent,
     ProductformComponent,
     StdFormComponent,
-    StdTableComponent
+    StdTableComponent,
+    PassengerdashboardComponent,
+    PassengercardsComponent,
+    PassengercountComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

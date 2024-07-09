@@ -10,7 +10,6 @@ import { UuidserviceService } from 'src/app/shared/service/uuidservice.service';
   styleUrls: ['./todoform.component.scss']
 })
 export class TodoformComponent implements OnInit {
-
   constructor(
     private _todoService : TodoService,
     private _UuidserviceService : UuidserviceService

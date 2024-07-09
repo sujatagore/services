@@ -1,0 +1,25 @@
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <app-passengercount class="mb-5"
+            [getTotalCount]="totalCount"
+            [getCheckInCount]="checkInCount">
+
+        </app-passengercount>
+
+        <ul class="list-group mb-2">
+            <li class="list-group-item" *ngFor="let p of passengerArray">
+                {{p.fullname}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8 offset-md-2">
+        <!-- <app-passengercards [passObj]="passenger" *ngFor="let passenger of passengerArray"
+                        (emitPassenger)="onPassenger()" // (emitPassenger)="getCount()"> -->
+
+        <app-passengercards [passObj]="passenger" *ngFor="let passenger of passengerArray"
+                        (emitPassenger)="getCount()" >
+
+        </app-passengercards>
+    </div>
+</div>
