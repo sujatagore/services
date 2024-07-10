@@ -1,5 +1,5 @@
 
-<mat-card class="mb-5">
+<mat-card class="mb-5 ">
     <mat-card-content>
         <form #productForm="ngForm" (ngSubmit)="onProductAdd()">
             <mat-form-field class="w-100" appearance="outline">
@@ -9,7 +9,12 @@
                         placeholder="Product Name"
                         name="productname"
                         ngModel
-                        #productname="ngModel">
+                        #productname="ngModel"
+                        required>
+                <mat-error
+                    *ngIf="productname.invalid && productname.touched && productname.hasError('required')">
+                            Product name is required!!!
+                </mat-error>
             </mat-form-field>
 
             <mat-form-field class="w-100" appearance="outline">
@@ -19,20 +24,30 @@
                         placeholder="Product Image"
                         name="image"
                         ngModel
-                        #image="ngModel">
+                        #image="ngModel"
+                        required>
+                
+                    <mat-error
+                        *ngIf="image.invalid && image.touched && image.hasError('required')">
+                                Product Image is required!!!
+                    </mat-error>
             </mat-form-field>
 
             <mat-form-field class="w-100" appearance="outline">
                 <mat-label>Product Detail</mat-label>
-                <textarea matInput 
+                <textarea matInput
                         placeholder="Product Details"
                         name="productdetail"
                         ngModel
-                        #productdetail="ngModel">
+                        #productdetail="ngModel"
+                        required>
                 </textarea>
+                <mat-error
+                    *ngIf="productdetail.invalid && productdetail.touched && productdetail.hasError('required')">
+                                Product Details is required!!!
+                </mat-error>
             </mat-form-field>
 
             <button mat-flat-button color="primary" class="btn btn-sm btn-block" [disabled]="productForm.invalid">Add Product</button>
         </form>
     </mat-card-content>
-</mat-card>

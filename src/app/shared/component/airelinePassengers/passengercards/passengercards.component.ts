@@ -28,6 +28,7 @@ export class PassengercardsComponent implements OnInit{
   }
 
   onDelete(){
+    confirm(`Do you want you to remove the passenger!!!`)
       this._AirlinePassengersService.removePassInfo(this.passObj)
       this.emitPassenger.emit(true)
   }
